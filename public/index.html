@@ -22,7 +22,7 @@
         #username-prompt {
             background: rgba(0, 0, 0, 0.7);
             padding: 20px;
-            width: 320px;
+            width: 150px;
             border-radius: 10px;
             text-align: center;
         }
@@ -53,11 +53,10 @@
             border-radius: 10px;
             padding: 15px;
             width: 99vw;
-            max-width: 1400px;
+            max-width: 1300px;
             height: auto;
             display: flex;
             flex-direction: column;
-            /* dikey düzen */
             align-items: center;
             gap: 20px;
             box-sizing: border-box;
@@ -67,18 +66,15 @@
         #videos {
             display: flex;
             flex-direction: row;
-            /* yan yana */
             justify-content: center;
             align-items: center;
             gap: 20px;
         }
 
         video {
-            width: 80vw;
-            /* genişlik artırıldı */
-            height: 80vw;
-            /* oran bozulmasın diye ayarlandı */
-            max-width: 600px;
+            width: 60vw;
+            height: 60vw;
+            max-width: 500px;
             max-height: 450px;
             background: black;
             border-radius: 10px;
@@ -171,22 +167,6 @@
             font-weight: bold;
             color: #eee;
         }
-
-        /* Bildirim rozeti */
-        #notification-badge {
-            position: absolute;
-            top: 10px;
-            right: 15px;
-            background: red;
-            color: white;
-            font-weight: bold;
-            padding: 3px 7px;
-            border-radius: 50%;
-            font-size: 0.8rem;
-            display: none;
-            user-select: none;
-            z-index: 10;
-        }
     </style>
 </head>
 
@@ -210,7 +190,6 @@
         </div>
 
         <div id="chat">
-            <div id="notification-badge">0</div> <!-- Bildirim rozeti -->
             <div id="messages"></div>
             <div id="message-input">
                 <input type="text" id="message" autocomplete="off" placeholder="Mesaj yazın..." />
@@ -223,14 +202,13 @@
     <script src="script.js"></script>
 
     <script>
-        // Enter tuşuna basıldığında gönder butonuna basmayı simüle eden event
         const messageInput = document.getElementById('message');
         const sendButton = document.getElementById('send-message');
 
         messageInput.addEventListener('keydown', function (event) {
             if (event.key === 'Enter') {
-                event.preventDefault(); // Alt satıra geçmeyi engelle
-                sendButton.click();     // Gönder butonuna tıkla
+                event.preventDefault();
+                sendButton.click();
             }
         });
     </script>

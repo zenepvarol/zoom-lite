@@ -24,9 +24,6 @@ const statusDiv = document.getElementById('status');
 const toggleAudioBtn = document.getElementById('toggleAudio');
 const toggleVideoBtn = document.getElementById('toggleVideo');
 
-// Bildirim sesi için Audio objesi (küçük "ding" sesi)
-const notificationSound = new Audio('https://actions.google.com/sounds/v1/alarms/digital_watch_alarm_long.ogg');
-
 function logMessage(text, isSelf = false) {
   const div = document.createElement('div');
   div.textContent = text;
@@ -35,7 +32,6 @@ function logMessage(text, isSelf = false) {
   messagesContainer.scrollTop = messagesContainer.scrollHeight;
 }
 
-// Görsel bildirim için kısa bir efekt ekle
 function showVisualNotification(message) {
   const notification = document.createElement('div');
   notification.textContent = message;
@@ -156,7 +152,6 @@ socket.on('chat-message', data => {
   logMessage(messageText);
 
   // Sesli ve görsel bildirim
-  notificationSound.play().catch(() => {}); // Sessiz modda hata vermemesi için catch
   showVisualNotification(`Yeni mesaj: ${data.message}`);
 });
 
